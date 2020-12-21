@@ -165,7 +165,7 @@ conn.sendMessage(id, menu.menu3 ,MessageType.text);
       }
       else
       {
-         conn.sendMessage(id, "gavalid", MessageType.text)
+         conn.sendMessage(id, "bot on", MessageType.text)
       }
       ytdl.getInfo(videoid[1]).then(info =>
       {
