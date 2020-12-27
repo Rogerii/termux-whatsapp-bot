@@ -59,6 +59,7 @@ after running it you need to scan the qr
 > Penyegar Timeline
 
 > Youtube Downloader
+> Sticker Gifs
 
 ```
 
