@@ -35,7 +35,7 @@ conn.on('qr', qr =>
 {
    qrcode.generate(qr,
    {
-      small: true
+      small: trueo
    });
    console.log(`[ ${moment().format("HH:mm:ss")} ] Please Scan QR with app!`);
 });
@@ -131,7 +131,25 @@ conn.sendMessage(id, menu.menu3 ,MessageType.text);
          });
       }
    }
+if (messageType == 'imageMessage')
+   {
+      let caption = gif.caption.toLocaleLowerCase()
+      const buffer = await conn.downloadMediaMessage(m) // to decrypt & use as a buffer
+      if (caption == '!stickergif')
+      {
+         const stiker = await conn.downloadAndSaveMediaMessage(m) // to decrypt & save to file
 
+         const
+         {
+            exec
+         } = require("child_process");
+         exec('cwebp -q 50 ' + stickergif + ' -o temp/' + jam + '.webp', (error, stdout, stderr) =>
+         {
+            let stik = fs.readFileSync('temp/' + jam + '.webp')
+            conn.sendMessage(id, stik, MessageType.sticker)
+         });
+      }
+   }
    if (messageType === MessageType.text)
    {
       let is = m.message.conversation.toLocaleLowerCase()
